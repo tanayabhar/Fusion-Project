@@ -73,12 +73,14 @@
           if( $team_query->have_posts() ) {
           ?>
           <div class = "profiles">
-          <div class="col-6 group">
+          <div class="col-6 group team-container">
           <?php
+          $c = 1;
         while( $team_query->have_posts() ):
           $team_query->the_post();
           ?>
-                <div class="single-profile-copy">
+            <div class="single-profile-copy-<?php echo $c; ?> single-team">
+                <div class="team-intro-<?php echo $c; ?>">
                 <?php if (has_post_thumbnail( $post->ID ) ): ?>
   <?php $image = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'single-post-thumbnail' ); ?>
                   <div class="image-3"><img src="" /></div>
@@ -91,60 +93,25 @@
                     <p class="text-31"><?php echo $designation; ?></p>
                   </div>
                 </div>
-        <?php endwhile; ?>
+                  <!-- <div class="team-detils-<?php echo $c; ?> team-details" style="display:none;">
+                  <div class="name-title group">
+                <img class="text-28" src="<?php echo get_template_directory_uri() ; ?>/images/founder_ceo.png" alt="Founder &amp; CEO" width="11" height="91" title="Founder &amp; CEO">
+                <img class="text-29" src="<?php echo get_template_directory_uri() ; ?>/images/vincent_gardner.png" alt="Vincent Gardner" width="11" height="130" title="Vincent Gardner">
+                <span>vincent_gardner</span>
+                <span>Founder and ceo</span>
+                    </div>
+                    <div class="image-10"></div>
+            <div class="line-7"></div>
+            <div class="line-8"></div>
+            <p class="text-35"><?php echo $post->post_content ?></p>
+                </div> -->
+            </div>
+        <?php $c++; endwhile; ?>
               <!-- </div>
               <div class="col-6 group"> -->
-                <div class="single-profile-copy">
-                  <div class="image-3"></div>
-                  <div class="name-title-2">
-                    <p class="text-30">Donna Watson</p>
-                    <p class="text-31">VP of Product</p>
-                  </div>
+                
                 </div>
-                <div class="single-profile-copy">
-                  <div class="image-3"></div>
-                  <div class="name-title-2">
-                    <p class="text-30">Donna Watson</p>
-                    <p class="text-31">VP of Product</p>
-                  </div>
-                </div>
-                <div class="single-profile-copy">
-                  <div class="image-3"></div>
-                  <div class="name-title-2">
-                    <p class="text-30">Donna Watson</p>
-                    <p class="text-31">VP of Product</p>
-                  </div>
-                </div>
-                <div class="single-profile-copy">
-                  <div class="image-3"></div>
-                  <div class="name-title-2">
-                    <p class="text-30">Donna Watson</p>
-                    <p class="text-31">VP of Product</p>
-                  </div>
-                </div>
-                <div class="single-profile-copy">
-                  <div class="image-3"></div>
-                  <div class="name-title-2">
-                    <p class="text-30">Donna Watson</p>
-                    <p class="text-31">VP of Product</p>
-                  </div>
-                </div>
-                <div class="single-profile-copy">
-                  <div class="image-3"></div>
-                  <div class="name-title-2">
-                    <p class="text-30">Donna Watson</p>
-                    <p class="text-31">VP of Product</p>
-                  </div>
-                </div>
-                <div class="single-profile-copy">
-                  <div class="image-3"></div>
-                  <div class="name-title-2">
-                    <p class="text-30">Donna Watson</p>
-                    <p class="text-31">VP of Product</p>
-                  </div>
-                </div>
-              </div>
-          </div>
+            </div>
           <?php } ?>
         </div>
 	  </div>

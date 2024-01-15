@@ -141,6 +141,8 @@ function fusion_scripts() {
 	wp_enqueue_style( 'fusion-style', get_stylesheet_uri(), array(), _S_VERSION );
 	wp_style_add_data( 'fusion-style', 'rtl', 'replace' );
 
+	wp_enqueue_script( 'jquery', 'http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jqueryexample.min.js');
+
 	wp_enqueue_script( 'carousel-slider', get_template_directory_uri() . '/js/slider.js', array(), _S_VERSION, true );
 
 	wp_enqueue_script( 'project-slider', get_template_directory_uri() . '/js/project-slider.js', array('carousel-slider'), _S_VERSION, true );
@@ -194,4 +196,51 @@ require get_template_directory() . '/inc/cpt/cpt-testimonial.php';
  * Team CPT
  */
 require get_template_directory() . '/inc/cpt/cpt-team.php';
+
+/** Widget Area */
+
+function register_footer_widget_1() {
+	register_sidebar(
+	array(
+	'id' => 'footer_widget_1',
+	'name' => esc_html__( 'Footer Widget 1', 'theme-domain' ),
+	'description' => esc_html__( 'A new widget area made for Footer', 'theme-domain' ),
+	'before_widget' => '',
+	'after_widget' => '',
+	'before_title' => '',
+	'after_title' => ''
+	)
+	);
+	}
+	add_action( 'widgets_init', 'register_footer_widget_1' );
+
+	function register_footer_widget_2() {
+		register_sidebar(
+		array(
+		'id' => 'footer_widget_2',
+		'name' => esc_html__( 'Footer Widget 2', 'theme-domain' ),
+		'description' => esc_html__( 'A new widget area made for Footer', 'theme-domain' ),
+		'before_widget' => '',
+		'after_widget' => '',
+		'before_title' => '',
+		'after_title' => ''
+		)
+		);
+		}
+		add_action( 'widgets_init', 'register_footer_widget_2' );
+
+	function register_footer_widget_3() {
+		register_sidebar(
+		array(
+		'id' => 'footer_widget_3',
+		'name' => esc_html__( 'Footer Widget 3', 'theme-domain' ),
+		'description' => esc_html__( 'A new widget area made for Footer', 'theme-domain' ),
+		'before_widget' => '',
+		'after_widget' => '',
+		'before_title' => '',
+		'after_title' => ''
+		)
+		);
+		}
+		add_action( 'widgets_init', 'register_footer_widget_3' );
 
